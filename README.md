@@ -6,6 +6,10 @@ Allows Blade Templates to render a PHP matching a Vue Component, and utilizing V
 
 Once mounted, PHP rendered DOM is handled by Vue like normal.
 
+### Brief Demo
+
+![asdf](http://unr.im/1Z1m281C2T3I/content)
+
 
 ### Running this demo.
 
