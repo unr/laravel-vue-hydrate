@@ -16,16 +16,13 @@
 		<h1>Well now, this is a php page.</h1>
 		<p>Lets try rendering a {{ $phpVariable }}</p>
 
-		{{-- Matching markup to our vue template, faking SSR=true --}}
-		<div id='testApp' server-rendered="true">
-			Lets try rendering a {{ $initial_state['vueVariable'] }}
-		</div>
+		{{-- include PHP rendered version of component --}}
+		@include('vue-test', ['vue' => false])
 
 		{{-- Should match php rendered above, allowing Vue to mount clean & pull from store --}}
 		<script type="text/x-template" id="test-template">
-			<div id='testApp'>
-				Lets try rendering a @{{ $store.state.vueVariable }}
-			</div>
+			{{-- include JS rendered version of component --}}
+			@include('vue-test', ['vue' => true])
 		</script>
 
 		{{-- set vuex initial state via php --}}
