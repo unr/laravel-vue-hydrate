@@ -89,6 +89,9 @@ var store = new Vuex.Store({
 		changeVariable: function changeVariable(state) {
 			state.vueVariable = 'Oh god, VueX updated!';
 			state.list = ['this', 'set', 'by', 'vue', 'ohboy!'];
+		},
+		reverse: function reverse(state) {
+			state.list.reverse();
 		}
 	}
 });
@@ -109,6 +112,12 @@ var testApp = new Vue({
 			// dynamically updated vue example.
 			store.commit('changeVariable');
 		}, 2000);
+	},
+
+	methods: {
+		reverse: function reverse() {
+			store.commit('reverse');
+		}
 	}
 });
 

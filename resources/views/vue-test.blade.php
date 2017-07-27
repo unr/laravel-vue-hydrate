@@ -1,6 +1,11 @@
 <div id='testApp' {{ $vue ? '' : 'server-rendered="true"' }}>
 	<p>Lets try rendering a {{ $vue ? v('$store.state.vueVariable') : $initial_state['vueVariable'] }}</p>
 
+	<p>
+		<button @click='reverse'>Lets reverse our list!</button>
+		(works once vue is on, can reverse before vue updates var)
+	</p>
+
 	<p>How about rendering a list?</p>
 	<ul>
 		@if ($vue)

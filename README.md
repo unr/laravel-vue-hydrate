@@ -8,7 +8,7 @@ Once mounted, PHP rendered DOM is handled by Vue like normal.
 
 ### Brief Demo
 
-![asdf](http://unr.im/1Z1m281C2T3I/content)
+![example of build](http://unr.im/133t3T3S343e/content)
 
 
 ### Running this demo.

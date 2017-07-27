@@ -9,9 +9,13 @@ const store = new Vuex.Store({
 		list: null,
 	},
 	mutations: {
-		changeVariable (state) {
+		changeVariable(state) {
 			state.vueVariable = 'Oh god, VueX updated!';
 			state.list = ['this', 'set', 'by', 'vue', 'ohboy!'];
+		},
+
+		reverse(state) {
+			state.list.reverse();
 		},
 	},
 });
@@ -32,5 +36,10 @@ const testApp = new Vue({
 			// dynamically updated vue example.
 			store.commit('changeVariable')
 		}, 2000);
+	},
+	methods: {
+		reverse() {
+			store.commit('reverse');
+		},
 	},
 });
