@@ -6,10 +6,12 @@ const store = new Vuex.Store({
 		// should be rendered by php on load,
 		// and hopefully adjusted in testApp, updating the DOM.
 		vueVariable: null,
+		list: null,
 	},
 	mutations: {
 		changeVariable (state) {
 			state.vueVariable = 'Oh god, VueX updated!';
+			state.list = ['this', 'set', 'by', 'vue', 'ohboy!'];
 		},
 	},
 });

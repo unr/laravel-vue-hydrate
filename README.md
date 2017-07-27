@@ -22,4 +22,6 @@ Once mounted, PHP rendered DOM is handled by Vue like normal.
 
 #### TODOs
 
-- [ ] Come up with a better solution, over writing templates twice.
+- [x] Come up with a better solution, over writing templates twice.
+	- [x] Come up with an **even better solution**, over writing templates twice.
+- [ ] How do we handle child components?
