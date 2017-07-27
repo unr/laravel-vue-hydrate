@@ -1,2 +1,3 @@
-# laravel-vue-hydrate
-Proof of concept of a Laravel rendered website, hydrating and utilizing a vue instance on top.
+# Laravel - Faking SSR with Vue Hydration
+
+> Proof of concept
