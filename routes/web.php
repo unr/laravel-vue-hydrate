@@ -12,5 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $phpVariable = 'PHP VARIABLE';
+
+    // matches our VueX State, preventing jank when Vue Mounts
+    $initial_state = [
+        'vueVariable' => 'SET FROM PHP LOL'
+    ];
+
+    return view('welcome')
+        ->with('initial_state', $initial_state)
+        ->with('phpVariable', $phpVariable);
 });
