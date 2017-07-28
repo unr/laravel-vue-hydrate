@@ -42,7 +42,7 @@ const childTestComponent = {
 	name: 'ChildTest',
 	// Trying to use the parents php render, in the child component?
 	// not sure about this...
-	template: '#child-test-template',
+	template: '#childTest-template',
 	methods: {
 		increment() {
 			this.$store.commit('increment');
@@ -57,14 +57,14 @@ const childTestComponent = {
 const userTestComponent = {
 	name: 'UserTest',
 	props: ['user', 'index'],
-	template: '#user-test-template',
+	template: '#childCollection-template',
 };
 
 // proof of concept element, to be displayed in the middle of a Blade Template.
 const testApp = new Vue({
 	name: 'TestAppRoot',
 	el: '#testApp',
-	template: '#test-template',
+	template: '#vueTest-template',
 	store,
 	components: {
 		'child-test': childTestComponent,

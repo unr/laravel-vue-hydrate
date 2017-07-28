@@ -16,24 +16,16 @@
 		<h1>Well now, this is a php page.</h1>
 		<p>Lets try rendering a {{ $phpVariable }}</p>
 
-		{{-- include PHP rendered version of component --}}
-		@include('vue-test', ['vue' => false])
+		{{--
+			Will render vueTest.blade.php as static php, using $initial_state
+			Will add vueTest-template as a script, in the @stack('vue')
+		--}}
+		@vueComponent(vueTest)
 
-		{{-- Should match php rendered above, allowing Vue to mount clean & pull from store --}}
-		<script type="text/x-template" id="test-template">
-			{{-- include JS rendered version of component --}}
-			@include('vue-test', ['vue' => true])
-		</script>
-
-		{{-- Child component, needed to be included parallel to parent --}}
-		<script type="text/x-template" id="child-test-template">
-			@include('child-test', ['vue' => true])
-		</script>
-
-		{{-- Laravel collection example, same as above child --}}
-		<script type="text/x-template" id="user-test-template">
-			@include('child-collection', ['vue' => true])
-		</script>
+		{{--
+			Will output the <script> templates for each @vueComponent
+		--}}
+		@stack('vue')
 
 		{{-- set vuex initial state via php --}}
 		<script>window.__INITIAL_STATE__='{!! json_encode($initial_state) !!}'</script>

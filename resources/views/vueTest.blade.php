@@ -16,7 +16,6 @@
 			@endforeach
 		@endif
 	</ul>
-
 	<br /><br /><br />
 
 	<p>Lets try a child component!</p>
@@ -24,7 +23,7 @@
 	@if ($vue)
 		<child-test></child-test>
 	@else
-		@include('child-test', ['vue' => false])
+		@vueComponent(childTest)
 	@endif
 
 	<br /><br /><br />
@@ -34,7 +33,7 @@
 		<user-test v-for='(user, index) in $store.state.childItems' :key='user.name' :user='user' :index='index'></user-test>
 	@else
 		@foreach($initial_state['childItems'] as $childItem)
-			@include('child-collection', ['vue' => false, 'item' => $childItem])
+			@vueComponent(childCollection)
 		@endforeach
 	@endif
 </div>

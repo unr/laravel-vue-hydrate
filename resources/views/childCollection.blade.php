@@ -1,4 +1,4 @@
-<div class='childTest' {!! $vue ? ":key='user.name'" : 'key="'.$childItem['name'].'"' !!}>
+<div class='childTest'>
 	<strong>{{ $vue ? v('user.name') : $childItem['name'] }}</strong><br />
 
 	{{-- Kind of messy once we do if logic in vue/not vue huh.... --}}
