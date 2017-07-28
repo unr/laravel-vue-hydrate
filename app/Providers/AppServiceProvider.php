@@ -30,6 +30,19 @@ class AppServiceProvider extends ServiceProvider
                     echo \$__env->make('{$componentName}', array_except(get_defined_vars(), ['__data', '__path']))->with(['vue' => false])->render();
                 ?>";
         });
+
+        // Vue Variable, expects $vue to be true or false
+        // returns expected variable/string to frontend.
+        Blade::directive('vue', function ($expression) {
+            list($vueVariable, $phpVariable) = explode(', ', $expression);
+            return "{{ \$vue ? @v($vueVariable) : $phpVariable }}";
+        });
+
+        // Used by above @vue
+        // will return js var, as {{ var }} when rendered
+        Blade::directive('v', function($expression) {
+            return "<?php echo '{{'.$expression.'}}'; ?>";
+        });
     }
 
     /**

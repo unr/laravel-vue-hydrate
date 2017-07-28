@@ -1,5 +1,5 @@
 <div class='childTest'>
-	<strong>{{ $vue ? v('user.name') : $childItem['name'] }}</strong><br />
+	<strong>@vue('user.name', $childItem['name'])</strong><br />
 
 	{{-- Kind of messy once we do if logic in vue/not vue huh.... --}}
 	@if ($vue)

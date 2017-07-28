@@ -1,5 +1,5 @@
 <div id='testApp' {{ $vue ? '' : 'server-rendered="true"' }}>
-	<p>Lets try rendering a {{ $vue ? v('$store.state.vueVariable') : $initial_state['vueVariable'] }}</p>
+	<p>Lets try rendering a @vue('$store.state.vueVariable', $initial_state['vueVariable'])</p>
 
 	<p>
 		<button @click='reverse'>Lets reverse our list!</button>
