@@ -68,7 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(5);
 
 
 /***/ }),
@@ -76,14 +76,15 @@ module.exports = __webpack_require__(4);
 /***/ (function(module, exports, __webpack_require__) {
 
 window.Vue = __webpack_require__(2);
-window.Vuex = __webpack_require__(14);
+window.Vuex = __webpack_require__(4);
 
 var store = new Vuex.Store({
 	state: {
 		// should be rendered by php on load,
 		// and hopefully adjusted in testApp, updating the DOM.
 		vueVariable: null,
-		list: null
+		list: null,
+		count: null
 	},
 	mutations: {
 		changeVariable: function changeVariable(state) {
@@ -92,6 +93,12 @@ var store = new Vuex.Store({
 		},
 		reverse: function reverse(state) {
 			state.list.reverse();
+		},
+		increment: function increment(state) {
+			state.count++;
+		},
+		decrement: function decrement(state) {
+			state.count--;
 		}
 	}
 });
@@ -101,12 +108,31 @@ if (window.__INITIAL_STATE__) {
 	store.replaceState(JSON.parse(window.__INITIAL_STATE__));
 }
 
+// Child component, to be rendered by php / picked up as vue child
+var childTestComponent = {
+	name: 'ChildTest',
+	// Trying to use the parents php render, in the child component?
+	// not sure about this...
+	template: '#child-test-template',
+	methods: {
+		increment: function increment() {
+			this.$store.commit('increment');
+		},
+		decrement: function decrement() {
+			this.$store.commit('decrement');
+		}
+	}
+};
+
 // proof of concept element, to be displayed in the middle of a Blade Template.
 var testApp = new Vue({
 	name: 'TestAppRoot',
 	el: '#testApp',
 	template: '#test-template',
 	store: store,
+	components: {
+		'child-test': childTestComponent
+	},
 	created: function created() {
 		setTimeout(function () {
 			// dynamically updated vue example.
@@ -10245,21 +10271,6 @@ module.exports = g;
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11071,6 +11082,12 @@ var index_esm = {
 
 /* harmony default export */ __webpack_exports__["default"] = (index_esm);
 
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

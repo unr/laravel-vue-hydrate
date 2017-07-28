@@ -25,6 +25,11 @@
 			@include('vue-test', ['vue' => true])
 		</script>
 
+		{{-- Child component, needed to be included parallel to parent --}}
+		<script type="text/x-template" id="child-test-template">
+			@include('child-test', ['vue' => true])
+		</script>
+
 		{{-- set vuex initial state via php --}}
 		<script>window.__INITIAL_STATE__='{!! json_encode($initial_state) !!}'</script>
 

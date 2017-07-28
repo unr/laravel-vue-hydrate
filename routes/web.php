@@ -17,7 +17,8 @@ Route::get('/', function () {
     // matches our VueX State, preventing jank when Vue Mounts
     $initial_state = [
         'vueVariable' => 'SET FROM PHP LOL',
-        'list' => ['this', 'loaded', 'in', 'php']
+        'list' => ['this', 'loaded', 'in', 'php'],
+        'count' => 10,
     ];
 
     return view('welcome')

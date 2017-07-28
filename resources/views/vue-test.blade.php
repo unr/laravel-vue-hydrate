@@ -16,4 +16,14 @@
 			@endforeach
 		@endif
 	</ul>
+
+	<br /><br /><br />
+
+	<p>Lets try a child component!</p>
+
+	@if ($vue)
+		<child-test></child-test>
+	@else
+		@include('child-test', ['vue' => false])
+	@endif
 </div>
