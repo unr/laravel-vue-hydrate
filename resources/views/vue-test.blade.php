@@ -26,4 +26,15 @@
 	@else
 		@include('child-test', ['vue' => false])
 	@endif
+
+	<br /><br /><br />
+
+	<p>How about a Laravel Collection, as child components?</p>
+	@if ($vue)
+		<user-test v-for='(user, index) in $store.state.childItems' :key='user.name' :user='user' :index='index'></user-test>
+	@else
+		@foreach($initial_state['childItems'] as $childItem)
+			@include('child-collection', ['vue' => false, 'item' => $childItem])
+		@endforeach
+	@endif
 </div>

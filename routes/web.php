@@ -18,7 +18,12 @@ Route::get('/', function () {
     $initial_state = [
         'vueVariable' => 'SET FROM PHP LOL',
         'list' => ['this', 'loaded', 'in', 'php'],
-        'count' => 10,
+        'childItems' => collect([
+            ['name' => 'unr', 'admin' => true],
+            ['name' => 'jon', 'admin' => false],
+            ['name' => 'ryan', 'admin' => false],
+        ]),
+        'count' => 420,
     ];
 
     return view('welcome')

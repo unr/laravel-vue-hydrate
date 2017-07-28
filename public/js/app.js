@@ -84,7 +84,10 @@ var store = new Vuex.Store({
 		// and hopefully adjusted in testApp, updating the DOM.
 		vueVariable: null,
 		list: null,
-		count: null
+		count: null,
+
+		// example of laravel collection, loop as child components
+		childItems: null
 	},
 	mutations: {
 		changeVariable: function changeVariable(state) {
@@ -99,6 +102,9 @@ var store = new Vuex.Store({
 		},
 		decrement: function decrement(state) {
 			state.count--;
+		},
+		toggleAdmin: function toggleAdmin(state, index) {
+			state.childItems[index].admin = !state.childItems[index].admin;
 		}
 	}
 });
@@ -124,6 +130,13 @@ var childTestComponent = {
 	}
 };
 
+// Child component, in a loop from a laravel collection
+var userTestComponent = {
+	name: 'UserTest',
+	props: ['user', 'index'],
+	template: '#user-test-template'
+};
+
 // proof of concept element, to be displayed in the middle of a Blade Template.
 var testApp = new Vue({
 	name: 'TestAppRoot',
@@ -131,7 +144,8 @@ var testApp = new Vue({
 	template: '#test-template',
 	store: store,
 	components: {
-		'child-test': childTestComponent
+		'child-test': childTestComponent,
+		'user-test': userTestComponent
 	},
 	created: function created() {
 		setTimeout(function () {

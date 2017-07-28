@@ -30,6 +30,11 @@
 			@include('child-test', ['vue' => true])
 		</script>
 
+		{{-- Laravel collection example, same as above child --}}
+		<script type="text/x-template" id="user-test-template">
+			@include('child-collection', ['vue' => true])
+		</script>
+
 		{{-- set vuex initial state via php --}}
 		<script>window.__INITIAL_STATE__='{!! json_encode($initial_state) !!}'</script>
 
