@@ -6,6 +6,15 @@ Allows Blade Templates to render a PHP matching a Vue Component, and utilizing V
 
 Once mounted, PHP rendered DOM is handled by Vue like normal.
 
+Original concept came from reading [this article by Anthony Gore](https://vuejsdevelopers.com/2017/04/09/vue-laravel-fake-server-side-rendering/)
+
+### Goals
+
+1. Laravel Based Routes & Views
+2. Jankless Rendering of Vue Compoenents within Blade Templates.
+3. Conciously keeping php rendered & vue template state in sync while building
+4. Release lootmarket/LaravelVueComponent as a standalone blade directive.
+
 ### Basic Features
 
 - Vue Apps rendered static within a Laravel Blade Template.
@@ -28,9 +37,9 @@ Once mounted, PHP rendered DOM is handled by Vue like normal.
 5. `php artisan serve`
 
 
-#### TODOs
+### Vue Proof Of Concepts:
 
-- [x] Come up with a better solution, over writing templates twice.
-	- [x] Come up with an **even better solution**, over writing templates twice.
-- [x] How do we handle child components?
-	- [ ] How do we handle child components.... better?
+- [x] Jankless Variable Loading (replaces VueX State on load)
+- [x] Capable of using child components
+- [ ] Transitions (how can php set initial transition state to match vue state?)
+- [ ] ~~Vue Router~~ no need, assumption here is laravel routing.
