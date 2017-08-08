@@ -4,7 +4,7 @@ This repo no longer includes the code for the Blade Directive.
 
 It has moved here: 
 
-# (Laravel Vue Blade Component)[https://github.com/lootmarket/laravel-vue-blade-component]
+# [Laravel Vue Blade Component](https://github.com/lootmarket/laravel-vue-blade-component)
 
 
 ---
