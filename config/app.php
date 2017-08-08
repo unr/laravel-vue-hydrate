@@ -177,6 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // omg lets include laravel vue blade directive
+        LootMarket\VueComponent\VueComponentServiceProvider::class,
     ],
 
     /*

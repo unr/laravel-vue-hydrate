@@ -1,5 +1,16 @@
 # Laravel - Faking SSR with Vue Hydration
 
+This repo no longer includes the code for the Blade Directive. 
+
+It has moved here: 
+
+# (Laravel Vue Blade Component)[https://github.com/lootmarket/laravel-vue-blade-component]
+
+
+---
+
+# Original ReadME Below
+
 > Proof of concept
 
 Allows Blade Templates to render a PHP matching a Vue Component, and utilizing Vue Hydrate via `server-rendered="true"` to mount jankless.
